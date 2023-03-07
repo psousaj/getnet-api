@@ -2,6 +2,10 @@ package com.psousaj.getnetapi.model;
 
 import java.util.UUID;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -25,6 +29,7 @@ public class Transaction {
     @Column(name = "order_id")
     private String orderId;
 
+    @Id
     @Column(name = "payment_id")
     private UUID paymentId;
 
@@ -34,21 +39,36 @@ public class Transaction {
     @Column(name = "status")
     private String status;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "installments")
     private Integer installments;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "acquirer_transaction_id")
     private String acquirerTransactionId;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "authorization_time")
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
     private String authorizationTime;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "brand")
     private String brand;
 
-    @Id @Column(name = "terminal_nsu")
-    private String terminalNsu;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "terminal_nsu")
+    private String nsu;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "authorization_code")
     private String authorizationCode;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "description_detail")
+    private String descriptionDetail;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "error_code")
+    private String errorCode;
 }
