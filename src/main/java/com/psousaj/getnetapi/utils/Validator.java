@@ -7,7 +7,8 @@ enum Status {
     CONFIRMED,
     CANCELED,
     DENIED,
-    ERROR
+    ERROR,
+    PAID
 }
 
 public class Validator {

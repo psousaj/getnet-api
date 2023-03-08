@@ -1,29 +1,28 @@
 package com.psousaj.getnetapi.model;
 
-import java.util.Date;
+import java.util.UUID;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-public class BilletTransaction{
-    @Column(name = "payment_type")
-    private String paymentType;
-
-    @Column(name = "customer_id")
-    private String customerId;
-
-    @Id @Column(name = "id")
-    private String id;
+@AllArgsConstructor
+@Builder
+public class BilletTransaction {
+    @Id
+    @Column(name = "id")
+    private UUID id;
 
     @Column(name = "amount")
     private String amount;
@@ -31,12 +30,46 @@ public class BilletTransaction{
     @Column(name = "status")
     private String status;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "order_id")
+    private String orderId;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "payment_type")
+    private String paymentType;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "payment_id")
+    private String paymentId;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "bank")
+    private String bank;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "typeful_line")
     private String typefulLine;
 
-    @Column(name = "issue_date") @DateTimeFormat(pattern = "ddMMyyy")
-    private Date issueDate;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "issue_date")
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+    private String issueDate;
 
-    @Column(name = "expiration_date") @DateTimeFormat(pattern = "ddMMyyy")
-    private Date expirationDate;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "expiration_date")
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+    private String expirationDate;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "payment_date")
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+    private String paymentDate;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "error_code")
+    private String errorCode;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "description_detail")
+    private String descriptionDetail;
 }

@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.psousaj.getnetapi.model.BilletTransaction;
 import com.psousaj.getnetapi.model.Transaction;
+import com.psousaj.getnetapi.services.BilletService;
 import com.psousaj.getnetapi.services.TransactionsService;
 
 @org.springframework.web.bind.annotation.RestController
@@ -24,9 +26,11 @@ public class RestController {
     // "/api/conciliation"
     @Autowired
     private TransactionsService service;
+    @Autowired
+    private BilletService billetService;
 
     @GetMapping()
-    public ModelAndView welcome(){
+    public ModelAndView welcome() {
         return new ModelAndView("index");
     }
 
@@ -110,5 +114,64 @@ public class RestController {
                                                         
         return service.saveTransaction(actualTransaction);
     }
-}
 
+    @GetMapping("/billet")
+    public ResponseEntity<?> saveBilletTransaction(@RequestParam(required = false) String payment_type,
+            @RequestParam(required = false) String order_id,
+            @RequestParam(required = false) String payment_id,
+            @RequestParam(required = true) UUID id,
+            @RequestParam(required = true) String amount,
+            @RequestParam(required = true) String status,
+            @RequestParam(required = false) String bank,
+            @RequestParam(required = false) String typeful_line,
+            @RequestParam(required = false) String issue_date,
+            @RequestParam(required = false) String expiration_date,
+            @RequestParam(required = false) String payment_date,
+            @RequestParam(required = false) String error_code,
+            @RequestParam(required = false) String description_detail) {
+
+        issue_date = parseDate(issue_date);
+        expiration_date = parseDate(expiration_date);
+        payment_date = parseDate(payment_date);
+
+        BilletTransaction actualTransaction = BilletTransaction.builder()
+                // .paymentType(payment_type)
+                .orderId(order_id)
+                .paymentId(payment_id)
+                .id(id)
+                .amount(amount)
+                .status(status)
+                .bank(bank)
+                .status(status)
+                .status(status)
+                .status(status)
+                .status(status)
+                .descriptionDetail(description_detail)
+                .errorCode(error_code)
+                .build();
+
+        return billetService.saveTransaction(actualTransaction);
+    }
+
+    @GetMapping("/billet/transactions")
+    public ResponseEntity<?> findBilletTransactions(@RequestParam(required = false) String status) {
+        if (status != null) {
+            return billetService.findByStatus(status);
+        }
+        return billetService.findAll();
+    }
+
+    public String parseDate(String date) {
+        LocalDateTime firstDate;
+        try {
+            firstDate = LocalDateTime
+                    .parse(date,
+                            DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+                                    .withZone(ZoneId.of("UTC")));
+
+            return firstDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+        } catch (Exception e) {
+            return null;
+        }
+    }
+}
