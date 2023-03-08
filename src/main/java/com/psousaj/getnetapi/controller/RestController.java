@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -183,6 +184,20 @@ public class RestController {
             return firstDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
         } catch (Exception e) {
             return null;
+        }
+    }
+
+    @Controller
+    public class RedirectController {
+
+        @GetMapping("/credit")
+        public RedirectView redirectToCreditTransactions() {
+            return new RedirectView("/api/v1/conciliation/credit/transactions");
+        }
+
+        @GetMapping("/debit")
+        public RedirectView redirectToDebitTransactions() {
+            return new RedirectView("/api/v1/conciliation/debit/transactions");
         }
     }
 }
