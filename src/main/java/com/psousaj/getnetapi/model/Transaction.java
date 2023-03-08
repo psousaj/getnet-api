@@ -2,6 +2,7 @@ package com.psousaj.getnetapi.model;
 
 import java.util.UUID;
 
+import org.springframework.cloud.gcp.data.firestore.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -16,6 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Document(collectionName = "transactions")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
