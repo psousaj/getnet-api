@@ -69,10 +69,10 @@ public class TransactionsService {
     public ResponseEntity<Transaction> saveTransaction(Transaction transaction){
         Transaction savedTransaction = repository.save(transaction);
         UriComponents uriComponents = UriComponentsBuilder.newInstance()
-                .scheme("http")
-                .host("localhost")
-                .port(8080)
-                .path("/api/{type}/transactions/{id}")
+                .scheme("https")
+                .host("taxcontabilidade.herokuapp.com/")
+                // .port(8080)
+                .path("/api/v1/conciliation/{type}/transactions/{id}")
                 .buildAndExpand(savedTransaction.getPaymentType(), savedTransaction.getPaymentId());
         URI uri = uriComponents.toUri();
 

@@ -19,7 +19,7 @@ import com.psousaj.getnetapi.model.Transaction;
 import com.psousaj.getnetapi.services.TransactionsService;
 
 @org.springframework.web.bind.annotation.RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/conciliation")
 public class RestController {
     // "/api/conciliation"
     @Autowired

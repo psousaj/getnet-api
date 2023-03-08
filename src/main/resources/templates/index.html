@@ -1,49 +1,203 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
-  <head>
-    <meta charset="UTF-8" />
-    <title>GetNet API</title>
-  </head>
-  <body>
-    <h1>O servidor está ativo na porta 8080</h1>
-    <div class="link" style="display: flex; gap:50px;">
-      <div class="credito" style="display: flex; flex-direction: column; width: 50%; text-align: start;">
-      <h1>Crédito</h1>
-        <a
-          href="/api/credit?payment_type=credit&customer_id=0d982d8f-d36e-474c-b233-37039d587f23&order_id=DEV-1598272595&payment_id=3fc70e99-cc9b-489d-a8a9-04b5e6e623b0&amount=846&status=APPROVED&number_installments=1&acquirer_transaction_id=000099713751&authorization_timestamp=2020-08-24T12%3A36%3A41.000Z&brand=visa&terminal_nsu=031575&authorization_code=9190383360902371"
-          >NOTIFICAÇÃO APROVADO (APPROVED)</a>
-        <a
-          href="/api/credit?payment_type=credit&customer_id=64a2f5fc-6c34-4ae5-bacf-3cadfc3fdcc8&order_id=DEV-1598272669&payment_id=5389abce-6d67-4b5c-bce8-315edef1cdce&amount=267&status=AUTHORIZED&number_installments=1&acquirer_transaction_id=000099713771&authorization_timestamp=2020-08-24T12%3A37%3A55.000Z&brand=visa&terminal_nsu=031817&authorization_code=9213092370902371"
-          >NOTIFICAÇÃO AUTORIZADO (AUTHORIZED)</a>
-        <a
-          href="/api/credit?payment_type=credit&customer_id=510a30b5-0f63-429d-b26c-64a9dab26b6f&order_id=DEV-1598272750&payment_id=a3892358-6e22-43b7-8190-34528d6172af&amount=285&status=PENDING&number_installments=1&acquirer_transaction_id=000099713781&authorization_timestamp=2020-08-24T12%3A39%3A15.000Z&brand=visa&terminal_nsu=032078&authorization_code=6757450390902371"
-          >NOTIFICAÇÃO PENDENTE (PENDING)</a>
-        <a
-          href="/api/credit?payment_type=credit&customer_id=f19c8a20-2bd8-4512-8eb3-6969561cbf95&order_id=DEV-1598276322&payment_id=f16e79ce-cf73-48d5-bb60-0d741f0c6ab6&amount=832&status=CONFIRMED&number_installments=1&terminal_nsu=010978&authorization_code=7080567381002371"
-          >NOTIFICAÇÃO CONFIRMADO (CONFIRMED)</a>
-        <a
-          href="/api/credit?payment_type=credit&customer_id=5641bc48-7011-4eff-9504-d0aa3aa41e83&order_id=DEV-1598276669&payment_id=9d58b2d6-923c-4231-a8a0-53235b3d2fd8&amount=833&status=CANCELED&number_installments=1&acquirer_transaction_id=000109713871&terminal_nsu=012111&authorization_code=9444323441002371"
-          >NOTIFICAÇÃO CANCELADO (CANCELED)</a>
-        <a
-          href="/api/credit?payment_type=credit&customer_id=af7aeba0-24c6-43e7-935d-c551bf7371ab&order_id=DEV-1598280178&payment_id=c205a63e-682a-410d-aefc-a43dba282cae&amount=922&status=DENIED&number_installments=1&acquirer_transaction_id=000119713961&terminal_nsu=000000&authorization_code=3523733431102371&description_detail=CARTAO%20INVALIDO%20%5BECOM%20-%20T8%5D&error_code=PAYMENTS-002"
-          >NOTIFICAÇÃO NEGADO (DENIED)</a>
-        <a
-          href="/api/credit?payment_type=credit&customer_id=942e384b-cd71-450a-9f17-cdf417055787&order_id=DEV-1598274047&payment_id=bb022122-c6e3-4955-b5a8-13a08d6dc9d8&amount=905&status=ERROR&number_installments=1&acquirer_transaction_id=000109713791&terminal_nsu=000000&authorization_code=6442178001002371&description_detail=SISTEMA%20DO%20EMISSOR%20INDISPONIVEL.%20LIGUE%20EMISSOR&error_code=PAYMENTS-021"
-          >NOTIFICAÇÃO ERRO (ERROR)</a>
-      </div>
-      <hr>
-      <div class="debito" style="display: flex; flex-direction: column; width: 50%; text-align: start;">
-        <h1>Débito</h1>
-        <a
-          href="/api/debit?customer_id=1234&order_id=123456&payment_id=90762cff-6afa-49a6-826d-6a7a7d6d3525&amount=300&status=APPROVED&payment_type=debit&acquirer_transaction_id=000225714311&authorization_timestamp=2020-06-08T01%3A58%3A54Z&brand=visa&terminal_nsu=004854&authorization_code=7641725582201590"
-          >NOTIFICAÇÃO APROVADO (APPROVED)</a>
-        <a
-          href="/api/debit?customer_id=43090927055&order_id=gmNKTzogN.0&payment_id=adecd170-45cf-4e83-8107-f6d696e77a62&amount=5100&status=DENIED&payment_type=debit&error_code=PAYMENTS-113&description_detail=TRANSACAO%20NAO%20AUTORIZADA.%20SOLICITE%20AO%20CLIENTE%20CONTATAR%20O%20EMISSOR%20%5BECOM%20-%2051%5D&brand=visa"
-          >NOTIFICAÇÃO NEGADO (DENIED)</a>
-        <a
-          href="/api/debit?customer_id=12345&order_id=123456&payment_id=b10763c4-9f63-42d8-83ca-40824734ec6d&amount=300&status=ERROR&payment_type=debit&error_code=PAYMENTS-500&description_detail=Unhandled%20express%20error&brand=visa"
-          >NOTIFICAÇÃO ERRO (ERROR)</a>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>TaxContabilidade - GetNet API</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+</head>
+
+<body>
+  <h1 class="display-1 fs-1">
+    Bem vindo! Esta é a API WebHook para conciliação de clientes
+    TaxContabilidade
+  </h1>
+  <main class="container text-center">
+    <div class="row column-gap-4">
+      <section class="credito col card mt-3">
+        <section class="card-body">
+          <h2>Crédito</h2>
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  <strong>Exemplo #1</strong>
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <button type="button" class="btn btn-secondary"><a
+                      href="/api/v1/conciliation/credit?payment_type=credit&customer_id=0d982d8f-d36e-474c-b233-37039d587f23&order_id=DEV-1598272595&payment_id=3fc70e99-cc9b-489d-a8a9-04b5e6e623b0&amount=846&status=APPROVED&number_installments=1&acquirer_transaction_id=000099713751&authorization_timestamp=2020-08-24T12%3A36%3A41.000Z&brand=visa&terminal_nsu=031575&authorization_code=9190383360902371">
+                      NOTIFICAÇÃO APROVADO (APPROVED)</a></button>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <strong>Exemplo #2</strong>
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <a
+                    href="/api/v1/conciliation/credit?payment_type=credit&customer_id=64a2f5fc-6c34-4ae5-bacf-3cadfc3fdcc8&order_id=DEV-1598272669&payment_id=5389abce-6d67-4b5c-bce8-315edef1cdce&amount=267&status=AUTHORIZED&number_installments=1&acquirer_transaction_id=000099713771&authorization_timestamp=2020-08-24T12%3A37%3A55.000Z&brand=visa&terminal_nsu=031817&authorization_code=9213092370902371">NOTIFICAÇÃO
+                    AUTORIZADO (AUTHORIZED)</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  <strong>Exemplo #3</strong>
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <a
+                    href="/api/v1/conciliation/credit?payment_type=credit&customer_id=510a30b5-0f63-429d-b26c-64a9dab26b6f&order_id=DEV-1598272750&payment_id=a3892358-6e22-43b7-8190-34528d6172af&amount=285&status=PENDING&number_installments=1&acquirer_transaction_id=000099713781&authorization_timestamp=2020-08-24T12%3A39%3A15.000Z&brand=visa&terminal_nsu=032078&authorization_code=6757450390902371">NOTIFICAÇÃO
+                    PENDENTE (PENDING)</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  <strong>Exemplo #4</strong>
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <a
+                    href="/api/v1/conciliation/credit?payment_type=credit&customer_id=f19c8a20-2bd8-4512-8eb3-6969561cbf95&order_id=DEV-1598276322&payment_id=f16e79ce-cf73-48d5-bb60-0d741f0c6ab6&amount=832&status=CONFIRMED&number_installments=1&terminal_nsu=010978&authorization_code=7080567381002371">NOTIFICAÇÃO
+                    CONFIRMADO (CONFIRMED)</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  <strong>Exemplo #5</strong>
+                </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <a
+                    href="/api/v1/conciliation/credit?payment_type=credit&customer_id=5641bc48-7011-4eff-9504-d0aa3aa41e83&order_id=DEV-1598276669&payment_id=9d58b2d6-923c-4231-a8a0-53235b3d2fd8&amount=833&status=CANCELED&number_installments=1&acquirer_transaction_id=000109713871&terminal_nsu=012111&authorization_code=9444323441002371">NOTIFICAÇÃO
+                    CANCELADO (CANCELED)</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  <strong>Exemplo #6</strong>
+                </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <a
+                    href="/api/v1/conciliation/credit?payment_type=credit&customer_id=af7aeba0-24c6-43e7-935d-c551bf7371ab&order_id=DEV-1598280178&payment_id=c205a63e-682a-410d-aefc-a43dba282cae&amount=922&status=DENIED&number_installments=1&acquirer_transaction_id=000119713961&terminal_nsu=000000&authorization_code=3523733431102371&description_detail=CARTAO%20INVALIDO%20%5BECOM%20-%20T8%5D&error_code=PAYMENTS-002">NOTIFICAÇÃO
+                    NEGADO (DENIED)</a>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  <strong>Exemplo #7</strong>
+                </button>
+              </h2>
+              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  <a
+                    href="/api/v1/conciliation/credit?payment_type=credit&customer_id=942e384b-cd71-450a-9f17-cdf417055787&order_id=DEV-1598274047&payment_id=bb022122-c6e3-4955-b5a8-13a08d6dc9d8&amount=905&status=ERROR&number_installments=1&acquirer_transaction_id=000109713791&terminal_nsu=000000&authorization_code=6442178001002371&description_detail=SISTEMA%20DO%20EMISSOR%20INDISPONIVEL.%20LIGUE%20EMISSOR&error_code=PAYMENTS-021">NOTIFICAÇÃO
+                    ERRO (ERROR)</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section class="col card mt-3">
+        <section class="card-body">
+          <div class="debito">
+            <h2>Débito</h2>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="dheadingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#dcollapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <strong>Exemplo #1</strong>
+                  </button>
+                </h2>
+                <div id="dcollapseOne" class="accordion-collapse collapse show" aria-labelledby="dheadingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <a
+                      href="/api/v1/conciliation/debit?customer_id=1234&order_id=123456&payment_id=90762cff-6afa-49a6-826d-6a7a7d6d3525&amount=300&status=APPROVED&payment_type=debit&acquirer_transaction_id=000225714311&authorization_timestamp=2020-06-08T01%3A58%3A54Z&brand=visa&terminal_nsu=004854&authorization_code=7641725582201590">NOTIFICAÇÃO
+                      APROVADO (APPROVED)</a>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="dheadingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#dcollapseTwo" aria-expanded="false" aria-controls="dcollapseTwo">
+                    <strong>Exemplo #2</strong>
+                  </button>
+                </h2>
+                <div id="dcollapseTwo" class="accordion-collapse collapse" aria-labelledby="dheadingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <a
+                      href="/api/v1/conciliation/debit?customer_id=43090927055&order_id=gmNKTzogN.0&payment_id=adecd170-45cf-4e83-8107-f6d696e77a62&amount=5100&status=DENIED&payment_type=debit&error_code=PAYMENTS-113&description_detail=TRANSACAO%20NAO%20AUTORIZADA.%20SOLICITE%20AO%20CLIENTE%20CONTATAR%20O%20EMISSOR%20%5BECOM%20-%2051%5D&brand=visa">NOTIFICAÇÃO
+                      NEGADO (DENIED)</a>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#dcollapseThree" aria-expanded="false" aria-controls="dcollapseThree">
+                    <strong>Exemplo #3</strong>
+                  </button>
+                </h2>
+                <div id="dcollapseThree" class="accordion-collapse collapse" aria-labelledby="dheadingThree"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <a
+                      href="/api/v1/conciliation/debit?customer_id=12345&order_id=123456&payment_id=b10763c4-9f63-42d8-83ca-40824734ec6d&amount=300&status=ERROR&payment_type=debit&error_code=PAYMENTS-500&description_detail=Unhandled%20express%20error&brand=visa">NOTIFICAÇÃO
+                      ERRO (ERROR)</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+      </section>
     </div>
-  </body>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
