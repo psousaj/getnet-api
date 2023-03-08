@@ -93,7 +93,7 @@ public class RestController {
         } catch (Exception e) {
         }
 
-        var actualTransaction = Transaction.builder()
+        Transaction actualTransaction = Transaction.builder()
                 .paymentType(payment_type)
                 .paymentId(payment_id)
                 .customerId(customer_id)
