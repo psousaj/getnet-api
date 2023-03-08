@@ -18,10 +18,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.psousaj.getnetapi.model.Transaction;
 import com.psousaj.getnetapi.services.TransactionsService;
 
-import lombok.var;
-
 @org.springframework.web.bind.annotation.RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 public class RestController {
     // "/api/conciliation"
     @Autowired
