@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.psousaj.getnetapi.model.BilletTransaction;
 import com.psousaj.getnetapi.model.Transaction;
@@ -159,6 +160,16 @@ public class RestController {
             return billetService.findByStatus(status);
         }
         return billetService.findAll();
+    }
+
+    @GetMapping("/credit")
+    public RedirectView redirectToCreditTransactions() {
+        return new RedirectView("./credit/transactions");
+    }
+
+    @GetMapping("/debit")
+    public RedirectView redirectToDebitTransactions() {
+        return new RedirectView("./debit/transactions");
     }
 
     public String parseDate(String date) {
