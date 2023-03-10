@@ -163,16 +163,6 @@ public class RestController {
         return billetService.findAll();
     }
 
-    @GetMapping("/credit")
-    public RedirectView redirectToCreditTransactions() {
-        return new RedirectView("./credit/transactions");
-    }
-
-    @GetMapping("/debit")
-    public RedirectView redirectToDebitTransactions() {
-        return new RedirectView("./debit/transactions");
-    }
-
     public String parseDate(String date) {
         LocalDateTime firstDate;
         try {
@@ -188,16 +178,16 @@ public class RestController {
     }
 
     @Controller
-    public class RedirectController {
-
+    class teste {
         @GetMapping("/credit")
         public RedirectView redirectToCreditTransactions() {
-            return new RedirectView("/api/v1/conciliation/credit/transactions");
+            return new RedirectView("./api/v1/conciliation/credit/transactions");
         }
 
         @GetMapping("/debit")
         public RedirectView redirectToDebitTransactions() {
-            return new RedirectView("/api/v1/conciliation/debit/transactions");
+            return new RedirectView("./api/v1/conciliation/debit/transactions");
         }
+
     }
 }
