@@ -78,6 +78,8 @@ public class RestController {
             @RequestParam(required = true) UUID payment_id,
             @RequestParam(required = true) String amount,
             @RequestParam(required = true) String status,
+            @RequestParam(required = false) String transaction_id,
+            @RequestParam(required = false) String transaction_timestamp,
             @RequestParam(required = false) Integer number_installments,
             @RequestParam(required = false) String acquirer_transaction_id,
             @RequestParam(required = false) String authorization_timestamp,
@@ -88,12 +90,20 @@ public class RestController {
             @RequestParam(required = false) String error_code) {
 
         String dataHora = null;
+        String transactionTime = null;
         try {
             LocalDateTime firstDate = LocalDateTime
                     .parse(authorization_timestamp,
                             DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
                                     .withZone(ZoneId.of("UTC")));
+
+            LocalDateTime secondDate = LocalDateTime
+                    .parse(transaction_timestamp,
+                            DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+                                    .withZone(ZoneId.of("UTC")));
+
             dataHora = firstDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+            transactionTime = secondDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
         } catch (Exception e) {
         }
 
@@ -111,6 +121,8 @@ public class RestController {
                 .nsu(terminal_nsu)
                 .authorizationCode(authorization_code)
                 .descriptionDetail(description_detail)
+                .transactionId(transaction_id)
+                .transactionTime(transactionTime)
                 .errorCode(error_code)
                 .build();
                                                         
@@ -121,7 +133,7 @@ public class RestController {
     public ResponseEntity<?> saveBilletTransaction(@RequestParam(required = false) String payment_type,
             @RequestParam(required = false) String order_id,
             @RequestParam(required = false) String payment_id,
-            @RequestParam(required = true) UUID id,
+            @RequestParam(required = false) UUID id,
             @RequestParam(required = true) String amount,
             @RequestParam(required = true) String status,
             @RequestParam(required = false) String bank,

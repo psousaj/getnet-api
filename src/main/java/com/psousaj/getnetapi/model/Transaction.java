@@ -61,6 +61,15 @@ public class Transaction {
     private String nsu;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "transaction_id")
+    private String transactionId;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "transaction_timestamp")
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+    private String transactionTime;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "authorization_code")
     private String authorizationCode;
 
