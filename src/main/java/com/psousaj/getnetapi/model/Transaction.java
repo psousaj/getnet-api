@@ -80,4 +80,24 @@ public class Transaction {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @Column(name = "error_code")
     private String errorCode;
+    
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "receiver_psp_name")
+    private String receiverPspName;
+    
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "receiver_psp_code")
+    private String receiverPspCode;
+    
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "receiver_name")
+    private String receiverName;
+    
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "receiver_cnpj")
+    private String receiverCnpj;
+    
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @Column(name = "receiver_cpf")
+    private String receiverCpf;
 }

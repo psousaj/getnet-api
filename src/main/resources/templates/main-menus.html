@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<main class="container text-center" th:fragment="main-menus">
+		<div class="row column-gap-4">
+			<section class="credito col card mt-3">
+				<section class="card-body">
+					<h2>Crédito</h2>
+					<div class="accordion" id="accordionExample">
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingOne">
+								<button class="accordion-button" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseOne"
+									aria-expanded="false" aria-controls="collapseOne">
+									<strong>Exemplo #1</strong>
+								</button>
+							</h2>
+							<div id="collapseOne" class="accordion-collapse collapse show"
+								aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<button type="button" class="btn btn-secondary">
+										<a
+											href="/api/v1/conciliation/credit?payment_type=credit&customer_id=0d982d8f-d36e-474c-b233-37039d587f23&order_id=DEV-1598272595&payment_id=40316d03-2b41-4774-99d7-5a4969a3546b&amount=846&status=APPROVED&number_installments=1&acquirer_transaction_id=000099713751&authorization_timestamp=2020-08-24T12%3A36%3A41.000Z&brand=visa&terminal_nsu=031575&authorization_code=9190383360902371">
+											NOTIFICAÇÃO APROVADO (APPROVED)</a>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingTwo">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+									aria-expanded="false" aria-controls="collapseTwo">
+									<strong>Exemplo #2</strong>
+								</button>
+							</h2>
+							<div id="collapseTwo" class="accordion-collapse collapse"
+								aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<a
+										href="/api/v1/conciliation/credit?payment_type=credit&customer_id=64a2f5fc-6c34-4ae5-bacf-3cadfc3fdcc8&order_id=DEV-1598272669&payment_id=2e236cfb-7abd-400d-89c2-8457633d9b7d&amount=267&status=AUTHORIZED&number_installments=1&acquirer_transaction_id=000099713771&authorization_timestamp=2020-08-24T12%3A37%3A55.000Z&brand=visa&terminal_nsu=031817&authorization_code=9213092370902371">NOTIFICAÇÃO
+										AUTORIZADO (AUTHORIZED)</a>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingThree">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseThree"
+									aria-expanded="false" aria-controls="collapseThree">
+									<strong>Exemplo #3</strong>
+								</button>
+							</h2>
+							<div id="collapseThree" class="accordion-collapse collapse"
+								aria-labelledby="headingThree"
+								data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<a
+										href="/api/v1/conciliation/credit?payment_type=credit&customer_id=510a30b5-0f63-429d-b26c-64a9dab26b6f&order_id=DEV-1598272750&payment_id=ca7aa501-b05e-43a1-8d55-a24e58c3f65e&amount=285&status=PENDING&number_installments=1&acquirer_transaction_id=000099713781&authorization_timestamp=2020-08-24T12%3A39%3A15.000Z&brand=visa&terminal_nsu=032078&authorization_code=6757450390902371">NOTIFICAÇÃO
+										PENDENTE (PENDING)</a>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingFour">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseFour"
+									aria-expanded="false" aria-controls="collapseFour">
+									<strong>Exemplo #4</strong>
+								</button>
+							</h2>
+							<div id="collapseFour" class="accordion-collapse collapse"
+								aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<a
+										href="/api/v1/conciliation/credit?payment_type=credit&customer_id=f19c8a20-2bd8-4512-8eb3-6969561cbf95&order_id=DEV-1598276322&payment_id=5a89b4df-ed69-4a2f-9db0-b88517413af3&amount=832&status=CONFIRMED&number_installments=1&terminal_nsu=010978&authorization_code=7080567381002371">NOTIFICAÇÃO
+										CONFIRMADO (CONFIRMED)</a>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingFive">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseFive"
+									aria-expanded="false" aria-controls="collapseFive">
+									<strong>Exemplo #5</strong>
+								</button>
+							</h2>
+							<div id="collapseFive" class="accordion-collapse collapse"
+								aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<a
+										href="/api/v1/conciliation/credit?payment_type=credit&customer_id=5641bc48-7011-4eff-9504-d0aa3aa41e83&order_id=DEV-1598276669&payment_id=8da68556-705e-4eee-9a3a-aa469228e2d9&amount=833&status=CANCELED&number_installments=1&acquirer_transaction_id=000109713871&terminal_nsu=012111&authorization_code=9444323441002371">NOTIFICAÇÃO
+										CANCELADO (CANCELED)</a>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingSix">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseSix"
+									aria-expanded="false" aria-controls="collapseSix">
+									<strong>Exemplo #6</strong>
+								</button>
+							</h2>
+							<div id="collapseSix" class="accordion-collapse collapse"
+								aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<a
+										href="/api/v1/conciliation/credit?payment_type=credit&customer_id=af7aeba0-24c6-43e7-935d-c551bf7371ab&order_id=DEV-1598280178&payment_id=c0f39a58-c6da-48b5-a9e5-f9d7766f09da&amount=922&status=DENIED&number_installments=1&acquirer_transaction_id=000119713961&terminal_nsu=000000&authorization_code=3523733431102371&description_detail=CARTAO%20INVALIDO%20%5BECOM%20-%20T8%5D&error_code=PAYMENTS-002">NOTIFICAÇÃO
+										NEGADO (DENIED)</a>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-item">
+							<h2 class="accordion-header" id="headingThree">
+								<button class="accordion-button collapsed" type="button"
+									data-bs-toggle="collapse" data-bs-target="#collapseSeven"
+									aria-expanded="false" aria-controls="collapseSeven">
+									<strong>Exemplo #7</strong>
+								</button>
+							</h2>
+							<div id="collapseSeven" class="accordion-collapse collapse"
+								aria-labelledby="headingSeven"
+								data-bs-parent="#accordionExample">
+								<div class="accordion-body">
+									<a
+										href="/api/v1/conciliation/credit?payment_type=credit&customer_id=942e384b-cd71-450a-9f17-cdf417055787&order_id=DEV-1598274047&payment_id=486f4a0c-8cff-4f53-9ef7-17a20c5610fc&status=ERROR&number_installments=1&acquirer_transaction_id=000109713791&terminal_nsu=000000&authorization_code=6442178001002371&description_detail=SISTEMA%20DO%20EMISSOR%20INDISPONIVEL.%20LIGUE%20EMISSOR&error_code=PAYMENTS-021">NOTIFICAÇÃO
+										ERRO (ERROR)</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="col card mt-3">
+				<section class="card-body">
+					<div class="debito">
+						<h2>Débito</h2>
+						<div class="accordion" id="accordionExample">
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="dheadingOne">
+									<button class="accordion-button" type="button"
+										data-bs-toggle="collapse" data-bs-target="#dcollapseOne"
+										aria-expanded="false" aria-controls="collapseOne">
+										<strong>Exemplo #1</strong>
+									</button>
+								</h2>
+								<div id="dcollapseOne" class="accordion-collapse collapse show"
+									aria-labelledby="dheadingOne"
+									data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<a
+											href="/api/v1/conciliation/debit?customer_id=1234&order_id=123456&payment_id=38c9cc03-3040-4e12-9080-8a40c1398535&status=APPROVED&payment_type=debit&acquirer_transaction_id=000225714311&authorization_timestamp=2020-06-08T01%3A58%3A54Z&brand=visa&terminal_nsu=004854&authorization_code=7641725582201590">NOTIFICAÇÃO
+											APROVADO (APPROVED)</a>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="dheadingTwo">
+									<button class="accordion-button collapsed" type="button"
+										data-bs-toggle="collapse" data-bs-target="#dcollapseTwo"
+										aria-expanded="false" aria-controls="dcollapseTwo">
+										<strong>Exemplo #2</strong>
+									</button>
+								</h2>
+								<div id="dcollapseTwo" class="accordion-collapse collapse"
+									aria-labelledby="dheadingTwo"
+									data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<a
+											href="/api/v1/conciliation/debit?customer_id=43090927055&order_id=gmNKTzogN.0&payment_id=f0ac8a94-e759-4048-b575-3437ca355eb0&amount=5100&status=DENIED&payment_type=debit&error_code=PAYMENTS-113&description_detail=TRANSACAO%20NAO%20AUTORIZADA.%20SOLICITE%20AO%20CLIENTE%20CONTATAR%20O%20EMISSOR%20%5BECOM%20-%2051%5D&brand=visa">NOTIFICAÇÃO
+											NEGADO (DENIED)</a>
+									</div>
+								</div>
+							</div>
+							<div class="accordion-item">
+								<h2 class="accordion-header" id="headingThree">
+									<button class="accordion-button collapsed" type="button"
+										data-bs-toggle="collapse" data-bs-target="#dcollapseThree"
+										aria-expanded="false" aria-controls="dcollapseThree">
+										<strong>Exemplo #3</strong>
+									</button>
+								</h2>
+								<div id="dcollapseThree" class="accordion-collapse collapse"
+									aria-labelledby="dheadingThree"
+									data-bs-parent="#accordionExample">
+									<div class="accordion-body">
+										<a
+											href="/api/v1/conciliation/debit?customer_id=12345&order_id=123456&payment_id=9b42c4e8-86a3-475c-869a-504539c538c5&amount=300&status=ERROR&payment_type=debit&error_code=PAYMENTS-500&description_detail=Unhandled%20express%20error&brand=visa">NOTIFICAÇÃO
+											ERRO (ERROR)</a>
+									</div>
+								</div>
+							</div>
+						</div>
+				</section>
+			</section>
+		</div>
+		<div class="container">
+			<div class="row column-gap-4">
+				<section class="col card mt-3">
+					<section class="card-body">
+						<div class="pix">
+							<h2>Pix</h2>
+							<div class="accordion" id="accordionExample">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="dcheadingOne">
+										<button class="accordion-button" type="button"
+											data-bs-toggle="collapse" data-bs-target="#dccollapseOne"
+											aria-expanded="false" aria-controls="dccollapseOne">
+											<strong>Exemplo #1</strong>
+										</button>
+									</h2>
+									<div id="dccollapseOne"
+										class="accordion-collapse collapse show"
+										aria-labelledby="dcheadingOne"
+										data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<a
+												href="/api/v1/conciliation/pix?payment_type=pix&customer_id=1234987&order_id=DEV-1588877212&payment_id=36bc0208-cfb2-49de-8e00-b086d85b35dc&amount=1234&status=APPROVED&transaction_id=123412341234123&transaction_timestamp=2020-10-11T13%3A43%3A47Z&receiver_psp_name=PSP%20BANCO%20XYZ&receiver_psp_code=4321&receiver_name=jane%20doe&receiver_cnpj=null&receiver_cpf=46304398034&terminal_nsu=123456789">NOTIFICAÇÃO
+												APROVADO (APPROVED)</a>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="dcheadingTwo">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#dccollapseTwo"
+											aria-expanded="false" aria-controls="dccollapseTwo">
+											<strong>Exemplo #2</strong>
+										</button>
+									</h2>
+									<div id="dccollapseTwo" class="accordion-collapse collapse"
+										aria-labelledby="dcheadingTwo"
+										data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<a
+												href="/api/v1/conciliation/pix?payment_type=pix&customer_id=1234876&order_id=DEV-1588877212&payment_id=ef9861ce-97c2-44b6-a35e-6d203b79cab2&amount=1234&status=DENIED&transaction_id=123412341234123&transaction_timestamp=2020-10-11T13%3A43%3A47Z&terminal_nsu=123456789&description_detail=Pagamento+Negado+pelo+PSP+%28AF-88%29">NOTIFICAÇÃO
+												NEGADO (DENIED)</a>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingThree">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#dccollapseThree"
+											aria-expanded="false" aria-controls="dccollapseThree">
+											<strong>Exemplo #3</strong>
+										</button>
+									</h2>
+									<div id="dccollapseThree" class="accordion-collapse collapse"
+										aria-labelledby="dcheadingThree"
+										data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<a
+												href="/api/v1/conciliation/pix?payment_type=pix&customer_id=1234876&order_id=DEV-1588877212&payment_id=791f3854-4944-4dad-825d-dcbddebcef48&amount=1234&status=ERROR&transaction_id=123412341234123&transaction_timestamp=2020-10-11T13%3A43%3A47Z&terminal_nsu=123456789&description_detail=Pagamento+Negado+pelo+PSP+%28AF-88%29">NOTIFICAÇÃO
+												ERRO (ERROR)</a>
+										</div>
+									</div>
+								</div>
+							</div>
+					</section>
+				</section>
+				<section class="col card mt-3">
+					<section class="card-body">
+						<div class="billet">
+							<h2>Boleto</h2>
+							<div class="accordion" id="accordionExample">
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="dheadingOne">
+										<button class="accordion-button" type="button"
+											data-bs-toggle="collapse" data-bs-target="#dccollapseOne"
+											aria-expanded="false" aria-controls="dccollapseOne">
+											<strong>Exemplo #1</strong>
+										</button>
+									</h2>
+									<div id="dccollapseOne"
+										class="accordion-collapse collapse show"
+										aria-labelledby="dcheadingOne"
+										data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<a
+												href="/api/v1/conciliation/billet?payment_type=boleto&order_id=PEDIDO-123&payment_id=5f43d85d93f8cc00100c9c89&id=7c3931fc-73f8-4492-8484-a97562a08998&amount=1&status=PENDING&bank=0033&our_number=2020081116069&typeful_line=03399.5891093020.20081711606.901012284550000000001&issue_date=24082020&expiration_date=30112020">NOTIFICAÇÃO
+												PENDENTE (PENDING) </a>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="dheadingTwo">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#dccollapseTwo"
+											aria-expanded="false" aria-controls="dccollapseTwo">
+											<strong>Exemplo #2</strong>
+										</button>
+									</h2>
+									<div id="dccollapseTwo" class="accordion-collapse collapse"
+										aria-labelledby="dcheadingTwo"
+										data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<a
+												href="/api/v1/conciliation/billet?payment_type=boleto&order_id=PEDIDO-123&payment_id=5f43d90ea93a540010f5ce87&id=0601541a-55de-485e-9fcb-ef1081b43c00&amount=1&status=DENIED&bank=0033&our_number=202008111606&typeful_line=&issue_date=24082020&expiration_date=30072020&error_code=PAYMENTS-402&description_detail=00100-DATA%20EMISSAO%20MAIOR%20QUE%20A%20DATA%20VENCIMENTO
+                          ">NOTIFICAÇÃO
+												NEGADO (DENIED)</a>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingThree">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#dccollapseThree"
+											aria-expanded="false" aria-controls="dccollapseThree">
+											<strong>Exemplo #3</strong>
+										</button>
+									</h2>
+									<div id="dccollapseThree" class="accordion-collapse collapse"
+										aria-labelledby="dcheadingThree"
+										data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<a
+												href="/api/v1/conciliation/billet?payment_type=boleto&order_id=41&payment_id=5d9ddb5115e3d700105dc49c&id=d069acda-8b96-4f52-b345-43167d6dd220&amount=5189&status=ERROR&bank=0033&our_number=&typeful_line=&issue_date=09102019&expiration_date=09102019&error_code=GENERIC-500&description_detail=The%20server%20encountered%20an%20unexpected%20error">NOTIFICAÇÃO
+												ERRO (ERROR)</a>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingFour">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#dccollapseFour"
+											aria-expanded="false" aria-controls="dccollapseFour">
+											<strong>Exemplo #4</strong>
+										</button>
+									</h2>
+									<div id="dccollapseFour" class="accordion-collapse collapse"
+										aria-labelledby="dcheadingFour"
+										data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<a
+												href="/api/v1/conciliation/billet?id=a760c304-0594-4579-afe2-0c6ecc2d3745&payment_date=08102019&amount=1&status=PAID">NOTIFICAÇÃO
+												PAGO (PAID) </a>
+										</div>
+									</div>
+								</div>
+								<div class="accordion-item">
+									<h2 class="accordion-header" id="headingFive">
+										<button class="accordion-button collapsed" type="button"
+											data-bs-toggle="collapse" data-bs-target="#dccollapseFive"
+											aria-expanded="false" aria-controls="dccollapseFive">
+											<strong>Exemplo #5</strong>
+										</button>
+									</h2>
+									<div id="dccollapseFive" class="accordion-collapse collapse"
+										aria-labelledby="dcheadingFive"
+										data-bs-parent="#accordionExample">
+										<div class="accordion-body">
+											<a
+												href="/api/v1/conciliation/billet?id=a760c304-0594-4579-afe2-0c6ecc2d3745&payment_date=08102019&amount=1&status=CANCELED">NOTIFICAÇÃO
+												CANCELADO (CANCELED) </a>
+										</div>
+									</div>
+								</div>
+							</div>
+					</section>
+				</section>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

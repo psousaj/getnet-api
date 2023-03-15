@@ -1,8 +1,10 @@
 package com.psousaj.getnetapi.controller;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,7 @@ import com.psousaj.getnetapi.services.TransactionsService;
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/v1/conciliation")
 public class RestController {
-    // "/api/conciliation"
+	
     @Autowired
     private TransactionsService service;
     @Autowired
@@ -83,29 +85,21 @@ public class RestController {
             @RequestParam(required = false) Integer number_installments,
             @RequestParam(required = false) String acquirer_transaction_id,
             @RequestParam(required = false) String authorization_timestamp,
+            @RequestParam(required = false) String receiver_psp_name,
+            @RequestParam(required = false) String receiver_psp_code,
+            @RequestParam(required = false) String receiver_name,
+            @RequestParam(required = false) String receiver_cnpj,
+            @RequestParam(required = false) String receiver_cpf,
             @RequestParam(required = false) String brand,
             @RequestParam(required = false) String terminal_nsu,
             @RequestParam(required = false) String authorization_code,
             @RequestParam(required = false) String description_detail,
-            @RequestParam(required = false) String error_code) {
+            @RequestParam(required = false) String error_code
+            ) {
 
-        String dataHora = null;
-        String transactionTime = null;
-        try {
-            LocalDateTime firstDate = LocalDateTime
-                    .parse(authorization_timestamp,
-                            DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-                                    .withZone(ZoneId.of("UTC")));
-
-            LocalDateTime secondDate = LocalDateTime
-                    .parse(transaction_timestamp,
-                            DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-                                    .withZone(ZoneId.of("UTC")));
-
-            dataHora = firstDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
-            transactionTime = secondDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
-        } catch (Exception e) {
-        }
+        String dataHora = parseDate(authorization_timestamp);
+        String transactionTime = parseDate(transaction_timestamp);
+  
 
         Transaction actualTransaction = Transaction.builder()
                 .paymentType(payment_type)
@@ -123,6 +117,11 @@ public class RestController {
                 .descriptionDetail(description_detail)
                 .transactionId(transaction_id)
                 .transactionTime(transactionTime)
+                .receiverPspName(receiver_psp_name)
+                .receiverPspCode(receiver_psp_code)
+                .receiverName(receiver_name)
+                .receiverCnpj(receiver_cnpj)
+                .receiverCpf(receiver_cpf)
                 .errorCode(error_code)
                 .build();
                                                         
@@ -144,9 +143,9 @@ public class RestController {
             @RequestParam(required = false) String error_code,
             @RequestParam(required = false) String description_detail) {
 
-        issue_date = parseDate(issue_date);
-        expiration_date = parseDate(expiration_date);
-        payment_date = parseDate(payment_date);
+        String issueDate = parseDate(issue_date);
+        String expirationDate = parseDate(expiration_date);
+        String paymentDate = parseDate(payment_date);
 
         BilletTransaction actualTransaction = BilletTransaction.builder()
                 // .paymentType(payment_type)
@@ -156,10 +155,10 @@ public class RestController {
                 .amount(amount)
                 .status(status)
                 .bank(bank)
-                .status(status)
-                .status(status)
-                .status(status)
-                .status(status)
+                .typefulLine(typeful_line)
+                .issueDate(issueDate)
+                .expirationDate(expirationDate)
+                .paymentDate(paymentDate)
                 .descriptionDetail(description_detail)
                 .errorCode(error_code)
                 .build();
@@ -175,30 +174,57 @@ public class RestController {
         return billetService.findAll();
     }
 
-    public String parseDate(String date) {
-        LocalDateTime firstDate;
-        try {
-            firstDate = LocalDateTime
-                    .parse(date,
-                            DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-                                    .withZone(ZoneId.of("UTC")));
+//    public String parseDate(String date) {
+//        LocalDateTime firstDate;
+//        LocalDate localDate;
+//        int patternCounter = 0;
+//        while (patternCounter < 3) {
+//	        try {
+//	        	String patterns [] = {"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "yyyy-MM-dd'T'HH:mm:ss'Z'", "ddMMyyyy"};
+//	        	
+//	        	if (patternCounter == 2) {
+//	        		
+//	        	}
+//	        	
+//	            firstDate = LocalDateTime.parse(date, DateTimeFormatter.ofPattern(patterns[patternCounter]));
+//	
+//	            return firstDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+//	        } catch (Exception e) {
+//	        	patternCounter ++;
+//	            continue;
+//	        }
+//        }
+//        return null;
+//    }
 
-            return firstDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
-        } catch (Exception e) {
-            return null;
+    public String parseDate(String date) {
+        String[] patterns = {"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", "yyyy-MM-dd'T'HH:mm:ss'Z'", "ddMMyyyy"};
+        for (String pattern : patterns) {
+            try {
+                return LocalDateTime.parse(date, DateTimeFormatter.ofPattern(pattern))
+                                    .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+            } catch (Exception e) {
+            	try {
+            		return LocalDate.parse(date, DateTimeFormatter.ofPattern(pattern))
+            				.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+				} catch (Exception ignored) {}
+            }
         }
+        return null;
     }
 
+    
     @Controller
-    class teste {
-        @GetMapping("/credit")
-        public RedirectView redirectToCreditTransactions() {
-            return new RedirectView("./api/v1/conciliation/credit/transactions");
+    class Redirect {
+        @GetMapping("/{type}")
+        public RedirectView redirectToTypeTransactions(@PathVariable String type) {
+        	String redirect = String.format("./api/v1/conciliation/%s/transactions", type);
+            return new RedirectView(redirect);
         }
 
-        @GetMapping("/debit")
-        public RedirectView redirectToDebitTransactions() {
-            return new RedirectView("./api/v1/conciliation/debit/transactions");
+        @GetMapping("/billet")
+        public RedirectView redirectToBilletTransactions() {
+            return new RedirectView("./api/v1/conciliation/billet/transactions");
         }
 
     }
