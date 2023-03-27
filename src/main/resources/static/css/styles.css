@@ -1,0 +1,56 @@
+#chama {
+	background-color: #212529;
+}
+
+body{
+	position: relative;
+	height: 150%
+}
+
+.teste{
+	height: 150%;
+}
+
+header, nav {
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+
+	margin-bottom: 0;
+
+	background-color: #0FCF5F;
+
+	border-radius: 5px;
+}
+
+.nav-item {
+	border: 0.5px solid #EEE;
+	border-radius: 10px;
+	margin-right: 1em;
+
+	background-color: #212529;
+}
+
+.nav-item:hover {
+	border: 0.5px solid #212529;
+	border-radius: 10px;
+	margin-right: 1em;
+
+	background-color: yellow !important; 
+
+	transform: scale(1.1);
+}
+
+.nav-item a, dropdown-item {
+	color: #FFF;
+	background-color: #212529;
+}
+
+.nav-item a:hover, dropdown-item:hover {
+	color: #212529;
+	background-color: #FFF;
+}
+
+main{
+	margin: 5em auto;
+}
